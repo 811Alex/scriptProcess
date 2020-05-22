@@ -24,6 +24,7 @@ public class Main {
             waitService.scheduleAtFixedRate(new WaitProcTerm(proc, ()->{
                 System.out.println("Process terminated!\nExecuting end command.");
                 exec(argP.getEndCommand());
+                System.exit(0);
             }), 0, PROC_CHECK_ALIVE_INTERVAL, TimeUnit.MILLISECONDS);
             findService.shutdown();
         }), 0, PROC_SEARCH_INTERVAL, TimeUnit.MILLISECONDS);
